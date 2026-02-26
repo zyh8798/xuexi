@@ -8,7 +8,7 @@ console.log('========== 一、原型链继承（有缺陷） ==========\n');
 function Parent1() {
   this.names = ['a', 'b'];
 }
-function Child1() {}
+function Child1() { }
 Child1.prototype = new Parent1();
 
 const c1a = new Child1();
@@ -78,3 +78,4 @@ inherit(Student, Parent);
 const s = new Student('王五', 2);
 s.sayHi();
 console.log('s.constructor === Student:', s.constructor === Student);
+console.log(Student.prototype.__proto__ === Parent.prototype, '666')

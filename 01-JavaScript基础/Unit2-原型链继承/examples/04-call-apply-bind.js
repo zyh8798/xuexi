@@ -169,3 +169,5 @@ console.log('\n========== 五、答案（先自己做再展开看） ==========\
 // Parent.call(this, name, age);  → 题 6 填在 Child 里后，可测：
 // const c = new Child('小明', 10, 3);
 // console.log('题6 结果:', c.name, c.age, c.grade);
+
+

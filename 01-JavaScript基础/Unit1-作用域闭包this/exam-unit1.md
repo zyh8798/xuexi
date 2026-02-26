@@ -24,7 +24,7 @@ fn();
 
 <details>
 <summary>点击查看答案</summary>
-D（ReferenceError）。函数内 let a 形成块级作用域，在声明前访问 a 处于暂时性死区，会报错。
+<p>D（ReferenceError）。函数内 let a 形成块级作用域，在声明前访问 a 处于暂时性死区，会报错。</p>
 </details>
 
 ---
@@ -44,7 +44,7 @@ for (let i = 0; i < 3; i++) {
 
 <details>
 <summary>点击查看答案</summary>
-A。let 在 for 循环中每次迭代有独立的块级作用域，setTimeout 回调闭包捕获的是当次的 i，所以输出 0 1 2。
+<p>A。let 在 for 循环中每次迭代有独立的块级作用域，setTimeout 回调闭包捕获的是当次的 i，所以输出 0 1 2。</p>
 </details>
 
 ---
@@ -68,7 +68,7 @@ obj.sayName();
 
 <details>
 <summary>点击查看答案</summary>
-B（或 C 在严格模式）。箭头函数没有自己的 this，继承「定义时」外层作用域的 this。对象字面量在全局，外层 this 是 window/global（严格模式下为 undefined），所以不是 obj。
+<p>B（或 C 在严格模式）。箭头函数没有自己的 this，继承「定义时」外层作用域的 this。对象字面量在全局，外层 this 是 window/global（严格模式下为 undefined），所以不是 obj。</p>
 </details>
 
 ---
@@ -82,7 +82,7 @@ B（或 C 在严格模式）。箭头函数没有自己的 this，继承「定�
 
 <details>
 <summary>点击查看答案</summary>
-D。箭头函数忽略 call/apply/bind 传入的 this，只能沿用定义时词法作用域里的 this。
+<p>D。箭头函数忽略 call/apply/bind 传入的 this，只能沿用定义时词法作用域里的 this。</p>
 </details>
 
 ---
@@ -103,7 +103,7 @@ console.log(x);
 
 <details>
 <summary>点击查看答案</summary>
-10，20。foo 内没有声明 x，用的是全局的 x。先打印 10，再改为 20，最后全局打印 20。
+<p>10，20。foo 内没有声明 x，用的是全局的 x。先打印 10，再改为 20，最后全局打印 20。</p>
 </details>
 
 ---
@@ -126,7 +126,7 @@ fn();
 
 <details>
 <summary>点击查看答案</summary>
-1，2。inner 闭包引用 outer 的 a。第一次 fn() 打印 1 并把 a 改为 2；第二次 fn() 打印 2。
+<p>1，2。inner 闭包引用 outer 的 a。第一次 fn() 打印 1 并把 a 改为 2；第二次 fn() 打印 2。</p>
 </details>
 
 ---
@@ -148,7 +148,7 @@ getArrow2();
 
 <details>
 <summary>点击查看答案</summary>
-obj，other。箭头函数继承「定义时」外层 fn 的 this。obj.fn() 时 this 是 obj；obj.fn.call({ name: 'other' }) 时 fn 的 this 是 { name: 'other' }，返回的箭头函数继承的便是 other。
+<p>obj，other。箭头函数继承「定义时」外层 fn 的 this。obj.fn() 时 this 是 obj；obj.fn.call({ name: 'other' }) 时 fn 的 this 是 { name: 'other' }，返回的箭头函数继承的便是 other。</p>
 </details>
 
 ---
@@ -162,7 +162,7 @@ let a = 1;
 
 <details>
 <summary>点击查看答案</summary>
-ReferenceError。let 在声明前处于暂时性死区，连 typeof 访问也会报错（与 var 不同）。
+<p>ReferenceError。let 在声明前处于暂时性死区，连 typeof 访问也会报错（与 var 不同）。</p>
 </details>
 
 ---
@@ -173,9 +173,7 @@ ReferenceError。let 在声明前处于暂时性死区，连 typeof 访问也会
 
 <details>
 <summary>参考答案</summary>
-词法作用域：变量的作用域在**写代码时（定义时）**就确定了，由代码的嵌套结构决定。查找变量时沿定义时的作用域链往外找。
-
-动态作用域：变量的作用域在**运行时**由调用链决定，看函数是在哪里被调用的。JS 是词法作用域，不是动态作用域。
+<p>词法作用域：变量的作用域在**写代码时（定义时）**就确定了，由代码的嵌套结构决定。查找变量时沿定义时的作用域链往外找。<br>动态作用域：变量的作用域在**运行时**由调用链决定，看函数是在哪里被调用的。JS 是词法作用域，不是动态作用域。</p>
 </details>
 
 ---
@@ -184,9 +182,7 @@ ReferenceError。let 在声明前处于暂时性死区，连 typeof 访问也会
 
 <details>
 <summary>参考答案</summary>
-内层函数引用外层变量时，引擎会把外层作用域（环境）和内层函数绑在一起，这样内层在别处执行时还能沿作用域链找到这些变量。所以外层变量只要被闭包引用，就不会被 GC 回收。
-
-这些变量占用的内存存在「闭包环境对象」里，由引擎挂在函数对象上；函数被回收时，对应的环境也会被回收。
+<p>内层函数引用外层变量时，引擎会把外层作用域（环境）和内层函数绑在一起，这样内层在别处执行时还能沿作用域链找到这些变量。所以外层变量只要被闭包引用，就不会被 GC 回收。<br>这些变量占用的内存存在「闭包环境对象」里，由引擎挂在函数对象上；函数被回收时，对应的环境也会被回收。</p>
 </details>
 
 ---
@@ -195,9 +191,7 @@ ReferenceError。let 在声明前处于暂时性死区，连 typeof 访问也会
 
 <details>
 <summary>参考答案</summary>
-普通函数：this 由**调用方式**决定（默认 / 隐式 / 显式 / new），可以用 call/apply/bind 改变。
-
-箭头函数：没有自己的 this，**继承定义时**所在作用域的 this；call/apply/bind 对箭头函数无效，不能改它的 this。
+<p>普通函数：this 由**调用方式**决定（默认 / 隐式 / 显式 / new），可以用 call/apply/bind 改变。<br>箭头函数：没有自己的 this，**继承定义时**所在作用域的 this；call/apply/bind 对箭头函数无效，不能改它的 this。</p>
 </details>
 
 ---
@@ -206,10 +200,7 @@ ReferenceError。let 在声明前处于暂时性死区，连 typeof 访问也会
 
 <details>
 <summary>参考答案</summary>
-狭义：已经没有任何引用指向某块内存，但运行时没回收（引擎/原生 bug）。  
-广义（前端常说的）：还有引用（如闭包、未解绑的监听器）导致大对象长期不被回收，内存居高不下。
-
-闭包导致的是后者——引用一直存在，只是拖着大对象不用，属于「不必要的内存保留」。避免闭包引用大对象，或用完置 null。
+<p>狭义：已经没有任何引用指向某块内存，但运行时没回收（引擎/原生 bug）。<br>广义（前端常说的）：还有引用（如闭包、未解绑的监听器）导致大对象长期不被回收，内存居高不下。<br>闭包导致的是后者——引用一直存在，只是拖着大对象不用，属于「不必要的内存保留」。避免闭包引用大对象，或用完置 null。</p>
 </details>
 
 ---
@@ -233,11 +224,7 @@ outer();
 
 <details>
 <summary>参考答案</summary>
-作用域链：inner 作用域 → outer 作用域 → 全局作用域。
-
-- a：inner 无 → outer 无 → 全局有（找到 1）  
-- b：inner 无 → outer 有（找到 2）  
-- c：inner 有（找到 3）
+<p>作用域链：inner 作用域 → outer 作用域 → 全局作用域。<br>- a：inner 无 → outer 无 → 全局有（找到 1）<br>- b：inner 无 → outer 有（找到 2）<br>- c：inner 有（找到 3）</p>
 </details>
 
 ---
@@ -254,11 +241,7 @@ for (var i = 0; i < 3; i++) {
 
 <details>
 <summary>参考答案</summary>
-输出：3 3 3。var 是函数作用域，循环结束后 i 为 3，三个 setTimeout 回调共享同一个 i，1 秒后都打印 3。
-
-改法一：把 var 改成 let，每次迭代有独立块级作用域。  
-改法二：用 IIFE 包一层，传参保存当次 i：  
-`(function(j) { setTimeout(function() { console.log(j); }, 1000); })(i);`
+<p>输出：3 3 3。var 是函数作用域，循环结束后 i 为 3，三个 setTimeout 回调共享同一个 i，1 秒后都打印 3。<br>改法一：把 var 改成 let，每次迭代有独立块级作用域。<br>改法二：用 IIFE 包一层，传参保存当次 i：<code>(function(j) { setTimeout(function() { console.log(j); }, 1000); })(i);</code></p>
 </details>
 
 ---

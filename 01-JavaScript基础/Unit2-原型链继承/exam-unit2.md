@@ -21,7 +21,7 @@ console.log(p.constructor === Person);
 
 <details>
 <summary>点击查看答案</summary>
-A。p 自身没有 constructor，沿原型链找到 Person.prototype.constructor，指向 Person。
+<p>A。p 自身没有 constructor，沿原型链找到 Person.prototype.constructor，指向 Person。</p>
 </details>
 
 ---
@@ -35,7 +35,7 @@ A。p 自身没有 constructor，沿原型链找到 Person.prototype.constructor
 
 <details>
 <summary>点击查看答案</summary>
-B。寄生组合继承用 Object.create(Parent.prototype) 替代 new Parent()，避免执行父类构造函数，只调用一次 Parent.call(this)。
+<p>B。寄生组合继承用 Object.create(Parent.prototype) 替代 new Parent()，避免执行父类构造函数，只调用一次 Parent.call(this)。</p>
 </details>
 
 ---
@@ -65,7 +65,7 @@ new Child();
 
 <details>
 <summary>点击查看答案</summary>
-C。子类 constructor 中必须先调用 super() 才能使用 this，在 super() 之前访问 this 会报错。
+<p>C。子类 constructor 中必须先调用 super() 才能使用 this，在 super() 之前访问 this 会报错。</p>
 </details>
 
 ---
@@ -79,7 +79,7 @@ C。子类 constructor 中必须先调用 super() 才能使用 this，在 super(
 
 <details>
 <summary>点击查看答案</summary>
-B。A 错：函数的 __proto__ 指向 Function.prototype；C 对但 B 更核心；D 错：函数的 __proto__ 指向 Function.prototype。B 是原型链终点的关键。
+<p>B。A 错：函数的 __proto__ 指向 Function.prototype；C 对但 B 更核心；D 错：函数的 __proto__ 指向 Function.prototype。B 是原型链终点的关键。</p>
 </details>
 
 ---
@@ -102,7 +102,7 @@ console.log(getValue());
 
 <details>
 <summary>点击查看答案</summary>
-undefined。getValue 被单独取出后调用，this 不再指向 foo（严格模式为 undefined，非严格为 window），this.value 为 undefined。
+<p>undefined。getValue 被单独取出后调用，this 不再指向 foo（严格模式为 undefined，非严格为 window），this.value 为 undefined。</p>
 </details>
 
 ---
@@ -116,7 +116,7 @@ console.log(obj.toString === Object.prototype.toString);
 
 <details>
 <summary>点击查看答案</summary>
-true。obj 自身没有 toString，沿 __proto__ 找到 Object.prototype.toString。
+<p>true。obj 自身没有 toString，沿 __proto__ 找到 Object.prototype.toString。</p>
 </details>
 
 ---
@@ -129,6 +129,7 @@ true。obj 自身没有 toString，沿 __proto__ 找到 Object.prototype.toStrin
 
 <details>
 <summary>点击查看答案</summary>
+<div>
 
 ```javascript
 function Parent(name) {
@@ -149,6 +150,7 @@ Child.prototype.sayGrade = function () {
 };
 ```
 
+</div>
 </details>
 
 ---
@@ -159,6 +161,7 @@ Child.prototype.sayGrade = function () {
 
 <details>
 <summary>点击查看答案</summary>
+<div>
 
 ```javascript
 function myInstanceof(obj, Constructor) {
@@ -171,6 +174,7 @@ function myInstanceof(obj, Constructor) {
 }
 ```
 
+</div>
 </details>
 
 ---
@@ -181,6 +185,7 @@ function myInstanceof(obj, Constructor) {
 
 <details>
 <summary>点击查看答案</summary>
+<div>
 
 ```
 Student 实例
@@ -190,6 +195,7 @@ Student 实例
                                             __proto__ → null
 ```
 
+</div>
 </details>
 
 ---
@@ -198,5 +204,5 @@ Student 实例
 
 <details>
 <summary>点击查看答案</summary>
-组合继承中 Child.prototype = new Parent() 会：1）执行一次 Parent 构造函数，造成重复；2）在 Child.prototype 上产生多余的父类实例属性。寄生组合继承用 Object.create(Parent.prototype) 只继承原型，不执行 Parent，原型链干净，且只调用一次 Parent.call(this)。
+<p>组合继承中 Child.prototype = new Parent() 会：1）执行一次 Parent 构造函数，造成重复；2）在 Child.prototype 上产生多余的父类实例属性。寄生组合继承用 Object.create(Parent.prototype) 只继承原型，不执行 Parent，原型链干净，且只调用一次 Parent.call(this)。</p>
 </details>

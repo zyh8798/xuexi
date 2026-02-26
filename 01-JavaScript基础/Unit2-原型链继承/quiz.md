@@ -17,7 +17,7 @@ console.log(f.__proto__ === Foo.prototype);
 
 <details>
 <summary>点击查看答案</summary>
-A。new 创建的对象，其 __proto__ 指向构造函数的 prototype。
+<p>A。new 创建的对象，其 __proto__ 指向构造函数的 prototype。</p>
 </details>
 
 ---
@@ -31,7 +31,7 @@ A。new 创建的对象，其 __proto__ 指向构造函数的 prototype。
 
 <details>
 <summary>点击查看答案</summary>
-C。组合继承中，Child 构造函数里 Parent.call(this) 一次，Child.prototype = new Parent() 又一次。
+<p>C。组合继承中，Child 构造函数里 Parent.call(this) 一次，Child.prototype = new Parent() 又一次。</p>
 </details>
 
 ---
@@ -52,7 +52,7 @@ console.log(B.prototype.__proto__ === A.prototype);
 
 <details>
 <summary>点击查看答案</summary>
-A。extends 会让子类 prototype 的 __proto__ 指向父类 prototype，等价于寄生组合继承。
+<p>A。extends 会让子类 prototype 的 __proto__ 指向父类 prototype，等价于寄生组合继承。</p>
 </details>
 
 ---
@@ -66,7 +66,7 @@ A。extends 会让子类 prototype 的 __proto__ 指向父类 prototype，等价
 
 <details>
 <summary>点击查看答案</summary>
-B。Object.create(obj) 创建一个新对象，其 __proto__ 指向传入的 obj。
+<p>B。Object.create(obj) 创建一个新对象，其 __proto__ 指向传入的 obj。</p>
 </details>
 
 ---
@@ -87,7 +87,7 @@ console.log(p.name);
 
 <details>
 <summary>点击查看答案</summary>
-instance 和 proto。第一次 p 自己有 name；delete 后自身没有，去原型找。
+<p>instance 和 proto。第一次 p 自己有 name；delete 后自身没有，去原型找。</p>
 </details>
 
 ---
@@ -100,7 +100,7 @@ console.log(Function.__proto__ === Function.prototype);
 
 <details>
 <summary>点击查看答案</summary>
-true。Function 是函数，函数的 __proto__ 指向 Function.prototype。Function 作为内置构造函数，自己创造了自己。
+<p>true。Function 是函数，函数的 __proto__ 指向 Function.prototype。Function 作为内置构造函数，自己创造了自己。</p>
 </details>
 
 ---
@@ -113,6 +113,7 @@ true。Function 是函数，函数的 __proto__ 指向 Function.prototype。Func
 
 <details>
 <summary>点击查看答案</summary>
+<div>
 
 ```javascript
 function inherit(Child, Parent) {
@@ -126,6 +127,7 @@ function Child() {
 inherit(Child, Parent);
 ```
 
+</div>
 </details>
 
 ---
@@ -136,6 +138,7 @@ inherit(Child, Parent);
 
 <details>
 <summary>点击查看答案</summary>
+<div>
 
 ```javascript
 function myNew(Constructor, ...args) {
@@ -145,6 +148,7 @@ function myNew(Constructor, ...args) {
 }
 ```
 
+</div>
 </details>
 
 ---
@@ -155,9 +159,7 @@ function myNew(Constructor, ...args) {
 
 <details>
 <summary>点击查看答案</summary>
-- prototype：只有函数有，指向原型对象，用来存放共享方法。
-- __proto__：每个对象都有，指向其构造函数的 prototype，是查找属性时沿着的链。
-- 实例.__proto__ === 构造函数.prototype
+<p>- prototype：只有函数有，指向原型对象，用来存放共享方法。<br>- __proto__：每个对象都有，指向其构造函数的 prototype，是查找属性时沿着的链。<br>- 实例.__proto__ === 构造函数.prototype</p>
 </details>
 
 ---
@@ -166,6 +168,5 @@ function myNew(Constructor, ...args) {
 
 <details>
 <summary>点击查看答案</summary>
-- extends：相当于寄生组合继承，设置 Child.prototype = Object.create(Parent.prototype)，即 Child.prototype.__proto__ = Parent.prototype。
-- super()：相当于 Parent.call(this, ...args)，在子类构造函数中调用父类构造函数。
+<p>- extends：相当于寄生组合继承，设置 Child.prototype = Object.create(Parent.prototype)，即 Child.prototype.__proto__ = Parent.prototype。<br>- super()：相当于 Parent.call(this, ...args)，在子类构造函数中调用父类构造函数。</p>
 </details>
