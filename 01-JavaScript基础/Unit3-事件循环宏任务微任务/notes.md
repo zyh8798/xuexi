@@ -21,12 +21,20 @@ JavaScript 是**单线程**的，同一时刻只能执行一段代码。但浏�
 - **宏任务（Macro Task）**：setTimeout、setInterval、I/O、UI 渲染
 - **微任务（Micro Task）**：Promise.then、queueMicrotask、MutationObserver
 
-### 4. 一轮事件循环顺序
+### 4. async/await 与微任务
+
+- **await 后面的代码**：和 `Promise.then` 的回调一样，会作为**微任务**进入队列。
+- async 函数里，`await xxx` 等价于把「await 后面的代码」包进 `xxx.then(...)`，所以执行时机与 then 相同。
+- await **不会阻塞主线程**，只是把后续代码排进微任务队列，等当前宏任务和已有微任务跑完再执行。
+
+### 5. 一轮事件循环顺序
 
 1. 执行完**当前宏任务**（同步代码）
 2. 执行**所有微任务**（清空微任务队列）
 3. 可选：渲染（浏览器）
-4. 取下一个**宏任务**，回到步骤 1
+4. 取下一个**宏任务**，回到步骤 1  
+
+（所以：微任务总是「夹在相邻两个宏任务之间」，不是「先于所有宏任务」；第一个执行的就是脚本这个宏任务。）
 
 ---
 
@@ -44,6 +52,7 @@ JavaScript 是**单线程**的，同一时刻只能执行一段代码。但浏�
 2. 宏任务：setTimeout、setInterval、I/O
 3. 微任务：Promise.then、queueMicrotask
 4. 顺序：同步 → 微任务 → 宏任务 → 微任务 → …
+5. await 后面的代码 = 微任务（等价于 Promise.then）
 
 ---
 

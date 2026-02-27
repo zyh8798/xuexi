@@ -32,14 +32,28 @@ console.log(4);
 
 <details>
 <summary>点击查看答案</summary>
-<p>A。微任务在「当前宏任务」结束后、取下一个宏任务之前，全部清空。</p>
+<p>A。微任务在「当前宏任务」结束后、取「下一个」宏任务之前，全部清空。<br>注意：先执行的是当前宏任务（如脚本本身），再清微任务，再执行下一个宏任务。所以是「夹在相邻两个宏任务之间」，而不是「微任务先于所有宏任务」。</p>
+</details>
+
+---
+
+### 3. 关于 async/await 与微任务，正确的是？
+
+- A. await 后面的代码和 Promise.then 的回调一样，都会作为微任务执行  
+- B. await 后面的代码是宏任务  
+- C. await 会阻塞整个线程，后面的代码要等很久才执行  
+- D. 只有 Promise.then 是微任务，await 不是  
+
+<details>
+<summary>点击查看答案</summary>
+<p>A。async 函数中，await 后面的代码相当于被放进「该 Promise 的 .then」里，所以和 .then 回调一样是微任务。await 不会阻塞主线程，只是把后续代码排进微任务队列。</p>
 </details>
 
 ---
 
 ## 二、输出题（先自己推理，再运行验证）
 
-### 3. 依次输出什么？
+### 4. 依次输出什么？
 
 ```javascript
 console.log('a');
