@@ -1,6 +1,6 @@
 ---
 name: commit-message-helper
-description: 根据 git diff 生成符合约定式提交（Conventional Commits）的提交信息。在用户请求写提交信息、查看暂存变更或提到 commit message 时使用。
+description: 根据 git diff 生成符合约定式提交（Conventional Commits）的提交信息，提交后执行 push。在用户请求写提交信息、提交代码、查看暂存变更或提到 commit message 时使用。
 ---
 
 # 提交信息助手
@@ -41,6 +41,8 @@ description: 根据 git diff 生成符合约定式提交（Conventional Commits�
 2. 概括改动：识别修改的文件与逻辑。
 3. 确定 type 和 scope。
 4. 写出 subject，必要时加 body。
+5. **执行提交**：`git add`（如有未暂存）→ `git commit -m "..."`。
+6. **每次提交后执行 push**：`git push`。
 
 ## 示例
 
