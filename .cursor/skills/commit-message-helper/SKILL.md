@@ -42,7 +42,7 @@ description: 根据 git diff 生成符合约定式提交（Conventional Commits�
 3. 确定 type 和 scope。
 4. 写出 subject，必要时加 body。
 5. **执行提交**：`git add`（如有未暂存）→ `git commit -m "..."`。
-6. **每次提交后执行 push**：`git push`。
+6. **⚠️ 必须：每次提交后立即执行 `git push`**，不要只 commit 不 push。
 
 ## 示例
 
@@ -67,5 +67,6 @@ fix(reports): 修正时区转换后的日期显示
 
 ## 注意事项
 
+- **commit 后必须紧跟 `git push`**，不可遗漏。
 - 中文或英文均可，与项目现有风格一致即可。
 - 一次提交只做一类改动；若 diff 包含多种改动，可建议拆成多次提交。
