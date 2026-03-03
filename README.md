@@ -24,6 +24,7 @@
 - **Unit 2** 已就绪：[01-JavaScript基础/Unit2-原型链继承/](./01-JavaScript基础/Unit2-原型链继承/)
 - **Unit 3** 已就绪：[01-JavaScript基础/Unit3-事件循环宏任务微任务/](./01-JavaScript基础/Unit3-事件循环宏任务微任务/)
 - **Unit 4** 已就绪：[01-JavaScript基础/Unit4-Promise与async-await/](./01-JavaScript基础/Unit4-Promise与async-await/)
+- **Unit 5** 已就绪：[01-JavaScript基础/Unit5-数组对象API与手写题/](./01-JavaScript基础/Unit5-数组对象API与手写题/)
 
 学习顺序：notes.md → examples/*.js → quiz.md → exam-unit*.md
 # xuexi
