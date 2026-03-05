@@ -131,16 +131,25 @@ function throttle(fn, delay) {
 ```javascript
 function debounceImmediate(fn, delay) {
   let timer = null;
+  let lastArgs = null;
+  let lastThis = null;
   return function (...args) {
-    if (timer) clearTimeout(timer);
-    
-    const callNow = !timer;
-    
+    if (timer) {
+      clearTimeout(timer);
+      lastArgs = args;
+      lastThis = this;
+    } else {
+      fn.apply(this, args);
+    }
+
     timer = setTimeout(() => {
+      if (lastArgs !== null) {
+        fn.apply(lastThis, lastArgs);
+        lastArgs = null;
+        lastThis = null;
+      }
       timer = null;
     }, delay);
-    
-    if (callNow) fn.apply(this, args);
   };
 }
 ```
