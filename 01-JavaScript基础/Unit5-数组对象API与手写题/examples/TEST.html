@@ -50,25 +50,49 @@
         // }
 
 
-        function myDeepClone(obj, map = new Map()) {
-            if (typeof obj !== 'object' || obj === null) return obj;
-            if (map.has(obj)) return map.get(obj);
-            const res = Array.isArray(obj) ? [] : {};
-            map.set(obj, res);
-            console.log(map)
-            for (const key in obj) {
-                if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                    res[key] = myDeepClone(obj[key], map);
-                }
-            }
-            console.log(res)
-            return res;
-        }
+        // function myDeepClone(obj, map = new Map()) {
+        //     console.log(obj)
+        //     if (typeof obj !== 'object' || obj === null) {
+        //         console.log('不是对象,也不是空', '是普通的值', obj, '直接返回')
+        //         return obj;
+        //     }
+        //     if (map.has(obj)) {
+        //         console.log(`map中存在对象${obj}的拷贝值`, '直接返回')
+        //         return map.get(obj);
+        //     }
+        //     const res = Array.isArray(obj) ? [] : {};
+        //     // 修改第66行的打印，用 JSON.stringify 序列化当前值
+        //     console.log(map, 'map中value的快照:', JSON.stringify(map.get(obj)));
+        //     for (const key in obj) {
+        //         if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        //             let x = myDeepClone(obj[key], map);
+        //             console.log('函数返回的key值', x)
+        //             res[key] = x;
+        //         }
+        //     }
+        //     return res;
+        // }
+        // let obj = {
+        //     // a: 1,
+        // }
+        // obj.self = obj;
+        // let obj2 = myDeepClone(obj)
         let obj = {
             a: 1,
+            b: 2,
+            c: 3,
+            d: 4,
+            e: 5,
+            f: 6,
+            g: 7,
+            h: 8,
+            i: 9,
+            j: 10,
         }
         obj.self = obj;
-        let obj2 = myDeepClone(obj)
+        let map = new Map();
+        map.set(obj, {})
+        console.log(map.has(obj.self)) // true
     </script>
 </body>
 

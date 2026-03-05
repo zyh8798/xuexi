@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="area"></div>
+    <input
+        type="text"
+        id="input"
+    >
+    <script>
+        let area = document.getElementById('area');
+        let input = document.getElementById('input')
+        area.style.width = 200 + 'px'
+        area.style.height = 200 + 'px'
+        area.style.backgroundColor = 'red';
+        area.style.marginBottom = 200 + 'px'
+
+        area.addEventListener('mousemove', throttle(function (e) {
+            console.log(e);
+            console.log(e.clientX, e.clientY);
+        }, 1000))
+
+        input.addEventListener('keyup', debounce(function (e) {
+            console.log(e);
+        }, 1000, { immediate: true }))
+
+        function debounce(fn, delay, options = { immediate: false }) {
+            let timer
+            return function (...args) {
+                if (timer) {
+                    clearTimeout(timer)
+                    fn.apply(this, args)
+                } else {
+                    timer = setTimeout(() => {
+                        fn.apply(this, args)
+                        timer = undefined;
+                    }, delay)
+                }
+            }
+        }
+
+        function throttle(fn, delay) {
+            let last = 0;
+            return function (...args) {
+                let now = Date.now();
+                if (now - last >= delay) {
+                    fn.apply(this, args)
+                    last = now;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
