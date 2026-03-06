@@ -1,119 +1,129 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <input type="text" id="input" />
-    <script>
-      const input = document.getElementById("input");
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Document</title>
+</head>
 
-      // window.addEventListener('mousemove', throttle(function (e) {
-      //     console.log(e, e.clientX, e.clientY);
-      // }, 1000))
+<body>
+  <input
+    type="text"
+    id="input"
+  />
+  <script>
+    const input = document.getElementById("input");
 
-      // input.addEventListener('input', debounce(function (e) {
-      //     // console.log('无apply调用:',this)
-      //     console.log('有apply调用:', this)
-      //     console.log(e);
-      //     console.log(e.target.value);
-      // }, 1000));
+    // window.addEventListener('mousemove', throttle(function (e) {
+    //     console.log(e, e.clientX, e.clientY);
+    // }, 1000))
 
-      // function debounce(fn, delay) {
-      //     let timer = null;
-      //     return function (...args) {
-      //         if (timer) clearTimeout(timer);
-      //         timer = setTimeout(() => fn.apply(this, args), delay);
-      //     };
-      // }
+    // input.addEventListener('input', debounce(function (e) {
+    //     // console.log('无apply调用:',this)
+    //     console.log('有apply调用:', this)
+    //     console.log(e);
+    //     console.log(e.target.value);
+    // }, 1000));
 
-      // function throttle(fn, delay) {
-      //     console.log(111)
-      //     let last = 0; // 上一次执行的时间
-      //     return function (...args) {
-      //         const now = Date.now()
-      //         if (now - last >= delay) { // 如果现在的时间减去上一次执行的时间大于传入进来的延迟,说明满足了节流执行的条件,记录这一次的时间当下一次的上一次
-      //             last = now;
-      //             fn.apply(this, args)
-      //         }
-      //     }
-      // }
+    // function debounce(fn, delay) {
+    //     let timer = null;
+    //     return function (...args) {
+    //         if (timer) clearTimeout(timer);
+    //         timer = setTimeout(() => fn.apply(this, args), delay);
+    //     };
+    // }
 
-      // function myDeepClone(obj, map = new Map()) {
-      //     console.log(obj)
-      //     if (typeof obj !== 'object' || obj === null) {
-      //         console.log('不是对象,也不是空', '是普通的值', obj, '直接返回')
-      //         return obj;
-      //     }
-      //     if (map.has(obj)) {
-      //         console.log(`map中存在对象${obj}的拷贝值`, '直接返回')
-      //         return map.get(obj);
-      //     }
-      //     const res = Array.isArray(obj) ? [] : {};
-      //     // 修改第66行的打印，用 JSON.stringify 序列化当前值
-      //     console.log(map, 'map中value的快照:', JSON.stringify(map.get(obj)));
-      //     for (const key in obj) {
-      //         if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      //             let x = myDeepClone(obj[key], map);
-      //             console.log('函数返回的key值', x)
-      //             res[key] = x;
-      //         }
-      //     }
-      //     return res;
-      // }
-      // let obj = {
-      //     // a: 1,
-      // }
-      // obj.self = obj;
-      // let obj2 = myDeepClone(obj)
-      // let obj = {
-      //     a: 1,
-      //     b: 2,
-      //     c: 3,
-      //     d: 4,
-      //     e: 5,
-      //     f: 6,
-      //     g: 7,
-      //     h: 8,
-      //     i: 9,
-      //     j: 10,
-      // }
-      // obj.self = obj;
-      // let map = new Map();
-      // map.set(obj, {})
-      // console.log(map.has(obj.self)) // true
-      input.addEventListener(
-        "keyup",
-        debounceImmediate(function (e) {
-          console.log("执行了，当前值:", e.target.value);
-        }, 1000),
-      );
-      function debounceImmediate(fn, delay) {
-        let timer = null;
-        let lastArgs = null;
-        let lastThis = null;
-        return function (...args) {
-          if (timer) {
-            clearTimeout(timer);
-            lastArgs = args;
-            lastThis = this;
-          } else {
-            fn.apply(this, args);
-          }
+    // function throttle(fn, delay) {
+    //     console.log(111)
+    //     let last = 0; // 上一次执行的时间
+    //     return function (...args) {
+    //         const now = Date.now()
+    //         if (now - last >= delay) { // 如果现在的时间减去上一次执行的时间大于传入进来的延迟,说明满足了节流执行的条件,记录这一次的时间当下一次的上一次
+    //             last = now;
+    //             fn.apply(this, args)
+    //         }
+    //     }
+    // }
 
-          timer = setTimeout(() => {
-            if (lastArgs !== null) {
-              fn.apply(lastThis, lastArgs);
-              lastArgs = null;
-              lastThis = null;
-            }
-            timer = null;
-          }, delay);
-        };
-      }
-    </script>
-  </body>
+    // function myDeepClone(obj, map = new Map()) {
+    //     console.log(obj)
+    //     if (typeof obj !== 'object' || obj === null) {
+    //         console.log('不是对象,也不是空', '是普通的值', obj, '直接返回')
+    //         return obj;
+    //     }
+    //     if (map.has(obj)) {
+    //         console.log(`map中存在对象${obj}的拷贝值`, '直接返回')
+    //         return map.get(obj);
+    //     }
+    //     const res = Array.isArray(obj) ? [] : {};
+    //     // 修改第66行的打印，用 JSON.stringify 序列化当前值
+    //     console.log(map, 'map中value的快照:', JSON.stringify(map.get(obj)));
+    //     for (const key in obj) {
+    //         if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    //             let x = myDeepClone(obj[key], map);
+    //             console.log('函数返回的key值', x)
+    //             res[key] = x;
+    //         }
+    //     }
+    //     return res;
+    // }
+    // let obj = {
+    //     // a: 1,
+    // }
+    // obj.self = obj;
+    // let obj2 = myDeepClone(obj)
+    // let obj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3,
+    //     d: 4,
+    //     e: 5,
+    //     f: 6,
+    //     g: 7,
+    //     h: 8,
+    //     i: 9,
+    //     j: 10,
+    // }
+    // obj.self = obj;
+    // let map = new Map();
+    // map.set(obj, {})
+    // console.log(map.has(obj.self)) // true
+    // input.addEventListener(
+    //   "keyup",
+    //   debounceImmediate(function (e) {
+    //     console.log("执行了，当前值:", e.target.value);
+    //   }, 1000),
+    // );
+    // function debounceImmediate(fn, delay) {
+    //   let timer = null;
+    //   let lastArgs = null;
+    //   let lastThis = null;
+    //   return function (...args) {
+    //     if (timer) {
+    //       clearTimeout(timer);
+    //       lastArgs = args;
+    //       lastThis = this;
+    //     } else {
+    //       fn.apply(this, args);
+    //     }
+
+    //     timer = setTimeout(() => {
+    //       if (lastArgs !== null) {
+    //         fn.apply(lastThis, lastArgs);
+    //         lastArgs = null;
+    //         lastThis = null;
+    //       }
+    //       timer = null;
+    //     }, delay);
+    //   };
+    // }
+
+
+  </script>
+</body>
+
 </html>
