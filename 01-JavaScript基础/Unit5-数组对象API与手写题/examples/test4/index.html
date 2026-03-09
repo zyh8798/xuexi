@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Stream Demo</title>
+</head>
+
+<body>
+
+    <h2>AI Stream Chat</h2>
+
+    <input
+        id="input"
+        placeholder="输入内容"
+    >
+    <button onclick="send()">发送</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        async function send() {
+
+            const prompt = document.getElementById("input").value
+
+            const res = await fetch("http://localhost:3000/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ prompt })
+            })
+
+            const decoder = new TextDecoder()
+
+            let buffer = ""
+
+            for await (const chunk of res.body) {
+
+                const text = decoder.decode(chunk)
+
+                buffer += text
+
+                const parts = buffer.split("\n\n")
+
+                buffer = parts.pop()
+
+                for (const part of parts) {
+
+                    if (part.startsWith("data: ")) {
+
+                        const json = JSON.parse(part.slice(6))
+
+                        document.getElementById("result").textContent += json.delta
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
