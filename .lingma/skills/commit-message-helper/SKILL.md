@@ -19,15 +19,15 @@ description: 根据 git diff 生成符合约定式提交（Conventional Commits�
 
 ### Type 类型
 
-| 类型       | 说明           |
-|------------|----------------|
-| feat       | 新功能         |
-| fix        | 修复 bug       |
-| docs       | 文档           |
-| style      | 格式（不影响逻辑） |
-| refactor   | 重构           |
-| test       | 测试           |
-| chore      | 构建/工具等    |
+| 类型     | 说明               |
+| -------- | ------------------ |
+| feat     | 新功能             |
+| fix      | 修复 bug           |
+| docs     | 文档               |
+| style    | 格式（不影响逻辑） |
+| refactor | 重构               |
+| test     | 测试               |
+| chore    | 构建/工具等        |
 
 ### 规则
 
