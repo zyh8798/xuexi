@@ -38,6 +38,7 @@ class Vue2Reactive {
         // 【关键】每个属性都有一个专属的依赖收集器 Dep
         // 想象成：每个属性都有一个"订阅者名单"，记录谁在用它
         const dep = new Dep()
+        const that = this
 
         // 如果属性值是对象，递归处理（比如 data.nested.count）
         this.observe(val)
@@ -74,7 +75,7 @@ class Vue2Reactive {
                 val = newVal
 
                 // 如果新值是对象，也要变成响应式
-                this.observe(newVal)
+                that.observe(newVal)
 
                 // 【通知更新】告诉所有订阅这个属性的 Watcher：数据变了！
                 dep.notify()
